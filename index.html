@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Evandro José Tavares de Barros | Técnico em Segurança do Trabalho</title>
+    <!-- Tailwind CSS v3 -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        deepPurple: '#581845',
+                        spaceGray: '#1C1C1E',
+                        silver: '#E0E0E0',
+                        pureWhite: '#FFFFFF',
+                        midnightBlue: '#000080',
+                        starlight: '#F0EAD6',
+                        roseSand: '#E8C3BA',
+                    },
+                    fontFamily: {
+                        sans: ['-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+                        mono: ['JetBrains Mono', 'monospace'],
+                    },
+                    borderRadius: {
+                        'sm': '12px',
+                        'md': '24px',
+                        'lg': '36px',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            background-color: #581845;
+            color: #FFFFFF;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            overflow-x: hidden;
+        }
+        .frosted-glass {
+            background: rgba(28, 28, 30, 0.65);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(224, 224, 224, 0.15);
+        }
+        .frosted-glass-light {
+            background: rgba(240, 234, 214, 0.06);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(224, 224, 224, 0.1);
+        }
+        .hero-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            letter-spacing: -0.03em;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1C1C1E;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #000080;
+            border-radius: 4px;
+        }
+        .fade-in-up {
+            animation: fadeInUp 0.6s ease-out forwards;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(16px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-deepPurple text-pureWhite antialiased selection:bg-midnightBlue selection:text-white">
+
+    <!-- z-index contract: sticky-nav (100) -->
+    <header class="fixed top-0 left-0 right-0 z-[100] frosted-glass border-b border-white/10 transition-all duration-300">
+        <div class="max-w-[1280px] mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3">
+                <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center font-mono font-bold text-lg text-white shadow-md">
+                    EV
+                </div>
+                <div>
+                    <span class="block font-bold text-base tracking-tight text-white">Evandro J. T. Barros</span>
+                    <span class="block font-mono text-xs text-silver/80">Técnico em SST</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex items-center gap-8 text-sm font-medium">
+                <a href="#sobre" class="text-silver hover:text-white transition-colors">Sobre Mim</a>
+                <a href="#competencias" class="text-silver hover:text-white transition-colors">Competências</a>
+                <a href="#frentes" class="text-silver hover:text-white transition-colors">Frentes de Atuação</a>
+                <a href="#formacao" class="text-silver hover:text-white transition-colors">Formação</a>
+                <a href="#contato" class="px-4 py-2 rounded-sm bg-midnightBlue text-white hover:bg-midnightBlue/80 transition-all font-semibold text-xs tracking-wide shadow-sm">Contato Direto</a>
+            </nav>
+
+            <!-- Mobile Menu Button -->
+            <button id="menu-btn" class="md:hidden p-2 rounded-sm text-silver hover:text-white focus:outline-none">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Nav Menu -->
+        <div id="mobile-menu" class="hidden md:hidden frosted-glass border-b border-white/10 px-6 py-4 space-y-3">
+            <a href="#sobre" class="block text-silver hover:text-white py-1">Sobre Mim</a>
+            <a href="#competencias" class="block text-silver hover:text-white py-1">Competências</a>
+            <a href="#frentes" class="block text-silver hover:text-white py-1">Frentes de Atuação</a>
+            <a href="#formacao" class="block text-silver hover:text-white py-1">Formação</a>
+            <a href="#contato" class="block text-center py-2 rounded-sm bg-midnightBlue text-white font-semibold text-xs">Contato Direto</a>
+        </div>
+    </header>
+
+    <!-- Main Container -->
+    <main class="max-w-[1280px] mx-auto px-6 pt-32 pb-20">
+
+        <!-- Hero Section: Split-screen -->
+        <section class="min-h-[calc(100dvh-8rem)] flex items-center py-12">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center w-full">
+                <!-- Left Column: Text -->
+                <div class="lg:col-span-7 space-y-6 fade-in-up">
+                    <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-sm frosted-glass-light border border-white/10 font-mono text-xs text-roseSand">
+                        <span class="w-2 h-2 rounded-full bg-midnightBlue animate-pulse"></span>
+                        Gestão de SST &amp; Normas Industriais
+                    </div>
+                    <h1 class="hero-title font-bold text-white leading-tight">
+                        Evandro José <br><span class="text-roseSand">Tavares de Barros</span>
+                    </h1>
+                    <p class="text-lg text-silver/90 max-w-[65ch] leading-relaxed">
+                        Técnico em Segurança do Trabalho com sólida vivência em chão de fábrica, foco na proteção de vidas, conformidade regulatória rigorosa e excelência operacional em ambientes industriais e de turno.
+                    </p>
+                    <div class="flex flex-wrap gap-4 pt-4">
+                        <a href="#competencias" class="px-6 py-3 rounded-sm bg-midnightBlue text-white font-semibold text-sm hover:bg-midnightBlue/90 transition-all shadow-md flex items-center gap-2">
+                            Explorar Competências
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                        </a>
+                        <a href="#contato" class="px-6 py-3 rounded-sm border border-silver/30 text-white font-semibold text-sm hover:bg-white/5 transition-all">
+                            Entrar em Contato
+                        </a>
+                    </div>
+                    <div class="pt-6 flex items-center gap-6 text-xs font-mono text-silver/70">
+                        <div><span class="text-white font-bold">CIPA &amp; Brigada</span> | Gestão Ativa</div>
+                        <div>•</div>
+                        <div><span class="text-white font-bold">Trabalhos Especiais</span> | Liberação Segura</div>
+                    </div>
+                </div>
+
+                <!-- Right Column: Interactive Visual Card -->
+                <div class="lg:col-span-5">
+                    <div class="frosted-glass p-8 rounded-md relative shadow-2xl overflow-hidden border border-white/15">
+                        <div class="absolute -right-10 -top-10 w-40 h-40 bg-midnightBlue/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="space-y-6 relative z-10">
+                            <div class="flex items-center justify-between border-b border-white/10 pb-4">
+                                <span class="font-mono text-xs text-silver uppercase tracking-wider">Painel Operacional SST</span>
+                                <span class="px-2 py-1 rounded bg-midnightBlue/60 font-mono text-[10px] text-white">Ativo</span>
+                            </div>
+                            <div class="space-y-4 font-mono text-xs">
+                                <div class="p-3 rounded bg-spaceGray/60 border border-white/10 flex justify-between items-center">
+                                    <span class="text-silver">Inspeções de Planta &amp; EPIs</span>
+                                    <span class="text-roseSand font-bold">100% Conforme</span>
+                                </div>
+                                <div class="p-3 rounded bg-spaceGray/60 border border-white/10 flex justify-between items-center">
+                                    <span class="text-silver">Gestão de Brigada &amp; CIPA</span>
+                                    <span class="text-roseSand font-bold">Monitorado</span>
+                                </div>
+                                <div class="p-3 rounded bg-spaceGray/60 border border-white/10 flex justify-between items-center">
+                                    <span class="text-silver">Indicadores &amp; KPIs</span>
+                                    <span class="text-roseSand font-bold">Em Tempo Real</span>
+                                </div>
+                            </div>
+                            <div class="pt-2 text-xs text-silver/80 leading-relaxed font-sans">
+                                Atuação diária em liberação de trabalhos especiais, inspeções em sistemas de combate a incêndio, vasos sob pressão, redes de GLP e atendimento a emergências.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Sobre Mim Section -->
+        <section id="sobre" class="py-24 border-t border-white/10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="font-mono text-xs text-roseSand uppercase tracking-widest">Perfil Profissional</span>
+                    <h2 class="text-3xl font-bold tracking-tight">Compromiso com a vida e a excelência industrial</h2>
+                    <p class="text-silver/80 text-sm font-mono">Registro técnico e vivência prática consolidada.</p>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="frosted-glass p-8 rounded-md space-y-6">
+                        <p class="text-silver leading-relaxed text-base">
+                            Profissional dedicado e qualificado como <strong class="text-white font-semibold">Técnico em Segurança do Trabalho</strong>, com ampla vivência em chão de fábrica e ambientes industriais complexos. Especialista em assegurar a integridade física dos colaboradores e o cumprimento implacável das normas regulamentadoras (NRs).
+                        </p>
+                        <p class="text-silver leading-relaxed text-base">
+                            Minha rotina abrange desde a liderança e acompanhamento da CIPA e Brigada de Emergência até a liberação de trabalhos especiais no turno, auditorias rigorosas de EPIs, elaboração de Ordens de Serviço, PPPs e gestão de indicadores de segurança (KPIs). Comprometido com a prevenção de acidentes e o pronto atendimento em situações críticas.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Competências e Atividades Section (Categorized Grid) -->
+        <section id="competencias" class="py-24 border-t border-white/10">
+            <div class="space-y-4 mb-16 text-center max-w-2xl mx-auto">
+                <span class="font-mono text-xs text-roseSand uppercase tracking-widest">Matriz de Habilidades</span>
+                <h2 class="text-3xl font-bold tracking-tight">Competências e Atividades Técnicas</h2>
+                <p class="text-silver/80 text-sm">Organização estruturada das frentes de atuação exercidas na rotina de Segurança do Trabalho.</p>
+            </div>
+
+            <!-- Asymmetric Grid of Competency Cards -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                
+                <!-- Card 1: Programas e Comitês -->
+                <div class="frosted-glass p-6 rounded-md flex flex-col justify-between hover:border-roseSand/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center text-white font-mono text-sm shadow">01</div>
+                        <h3 class="text-xl font-bold text-white">Programas e Comitês</h3>
+                        <ul class="space-y-2 text-sm text-silver">
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Gestão e acompanhamento da CIPA
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Gestão e acompanhamento da Brigada de Emergência
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Elaboração de calendário de reunião e treinamento da Brigada
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Organização e execução de SIPATMA
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 2: Rotinas Operacionais -->
+                <div class="frosted-glass p-6 rounded-md flex flex-col justify-between hover:border-roseSand/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center text-white font-mono text-sm shadow">02</div>
+                        <h3 class="text-xl font-bold text-white">Rotinas de Turno e Operação</h3>
+                        <ul class="space-y-2 text-sm text-silver">
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Liberação de Trabalhos Especiais no Turno
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Realização de Integrações de Segurança
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Pronto Atendimento e Ações de Resposta
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Análise de Incidentes, Quase Acidentes e Acidentes do Turno
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 3: Inspeções e Auditorias -->
+                <div class="frosted-glass p-6 rounded-md flex flex-col justify-between hover:border-roseSand/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center text-white font-mono text-sm shadow">03</div>
+                        <h3 class="text-xl font-bold text-white">Inspeções e Auditorias Técnicas</h3>
+                        <ul class="space-y-2 text-sm text-silver">
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Auditoria de uso de EPIs
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Inspeções de Segurança na Planta
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Inspeções de Lava-olhos de Emergência
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Inspeções de Extintores, Hidrantes e Mangueiras de Emergência
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 4: Instalações e Equipamentos -->
+                <div class="frosted-glass p-6 rounded-md flex flex-col justify-between hover:border-roseSand/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center text-white font-mono text-sm shadow">04</div>
+                        <h3 class="text-xl font-bold text-white">Equipamentos e Redes</h3>
+                        <ul class="space-y-2 text-sm text-silver">
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Gestão de Laudos de Vasos Sobre Pressão
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Teste de Estanqueidade em Rede GLP
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Gestão de Sistemas de Para-raios
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Ensaio dos EPIs das Cabines Primárias
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 5: Documentação e Conformidade -->
+                <div class="frosted-glass p-6 rounded-md flex flex-col justify-between hover:border-roseSand/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center text-white font-mono text-sm shadow">05</div>
+                        <h3 class="text-xl font-bold text-white">Documentação e Compliance</h3>
+                        <ul class="space-y-2 text-sm text-silver">
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Avaliação da Documentação de Terceiros
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Elaboração de Ordens de Serviço (OS)
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Abertura de CAT (Comunicação de Acidente de Trabalho)
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Elaboração de PPPs (Perfil Profissiográfico Previdenciário)
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Card 6: Gestão de Ações e Indicadores -->
+                <div class="frosted-glass p-6 rounded-md flex flex-col justify-between hover:border-roseSand/40 transition-all duration-300">
+                    <div class="space-y-4">
+                        <div class="w-10 h-10 rounded-sm bg-midnightBlue flex items-center justify-center text-white font-mono text-sm shadow">06</div>
+                        <h3 class="text-xl font-bold text-white">Indicadores e Planos de Ação</h3>
+                        <ul class="space-y-2 text-sm text-silver">
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Acompanhamento e atualização de conclusões de ações (Acidentes e OS)
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Acompanhamento das Ações das Inspeções e Incidentes
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Monitoramento de KPIs de Segurança
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <span class="text-roseSand mt-1">•</span> Condução de Treinamentos de Segurança e Meio Ambiente
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Frentes de Atuação / Projetos Section -->
+        <section id="frentes" class="py-24 border-t border-white/10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="font-mono text-xs text-roseSand uppercase tracking-widest">Projetos &amp; Operações</span>
+                    <h2 class="text-3xl font-bold tracking-tight">Frentes de Atuação em Campo</h2>
+                    <p class="text-silver/80 text-sm">Simulados de emergência, melhorias contínuas e segurança ativa na planta industrial.</p>
+                </div>
+                <div class="lg:col-span-7 grid grid-cols-1 sm:grid-cols-2 gap-6">
+                    <div class="frosted-glass p-6 rounded-md space-y-3">
+                        <div class="text-roseSand font-mono text-xs">01 / Emergência</div>
+                        <h3 class="text-lg font-bold text-white">Simulados de Abandono</h3>
+                        <p class="text-sm text-silver">Organização e condução periódica de simulados práticos para assegurar a prontidão da brigada e evacuação segura.</p>
+                    </div>
+                    <div class="frosted-glass p-6 rounded-md space-y-3">
+                        <div class="text-roseSand font-mono text-xs">02 / Equipamentos</div>
+                        <h3 class="text-lg font-bold text-white">Vasos sob Pressão e GLP</h3>
+                        <p class="text-sm text-silver">Gestão completa de laudos técnicos de vasos de pressão e acompanhamento de testes de estanqueidade em redes GLP.</p>
+                    </div>
+                    <div class="frosted-glass p-6 rounded-md space-y-3">
+                        <div class="text-roseSand font-mono text-xs">03 / Terceiros</div>
+                        <h3 class="text-lg font-bold text-white">Controle de Terceirizados</h3>
+                        <p class="text-sm text-silver">Avaliação minuciosa de documentações regulatórias, integrações e liberação de trabalhos especiais com segurança jurídica e técnica.</p>
+                    </div>
+                    <div class="frosted-glass p-6 rounded-md space-y-3">
+                        <div class="text-roseSand font-mono text-xs">04 / Indicadores</div>
+                        <h3 class="text-lg font-bold text-white">KPIs e Ações Corretivas</h3>
+                        <p class="text-sm text-silver">Monitoramento constante de índices de segurança, fechamento de planos de ação de inspeções e análise de incidentes.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Formação Section -->
+        <section id="formacao" class="py-24 border-t border-white/10">
+            <div class="max-w-3xl mx-auto text-center space-y-8">
+                <span class="font-mono text-xs text-roseSand uppercase tracking-widest">Credenciamento Acadêmico</span>
+                <h2 class="text-3xl font-bold tracking-tight">Formação Profissional</h2>
+                <div class="frosted-glass p-8 rounded-md inline-block text-left w-full max-w-xl shadow-lg border border-white/15">
+                    <div class="flex items-start justify-between">
+                        <div>
+                            <h3 class="text-xl font-bold text-white">Técnico em Segurança do Trabalho</h3>
+                            <p class="text-silver text-sm font-mono mt-1">Formação Técnica Especializada</p>
+                        </div>
+                        <span class="px-3 py-1 rounded bg-midnightBlue text-xs font-mono text-white">Certificado</span>
+                    </div>
+                    <p class="text-sm text-silver/80 mt-4 leading-relaxed">
+                        Capacitação completa voltada para prevenção de riscos ambientais, engenharia de segurança, legislação trabalhista (NRs), atendimento pré-hospitalar, gestão de equipes de emergência e higiene ocupacional.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contato / Rodapé Section -->
+        <section id="contato" class="py-24 border-t border-white/10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5 space-y-4">
+                    <span class="font-mono text-xs text-roseSand uppercase tracking-widest">Conexão Profissional</span>
+                    <h2 class="text-3xl font-bold tracking-tight">Vamos conversar sobre Segurança e Excelência?</h2>
+                    <p class="text-silver/80 text-sm">Disponível para oportunidades em gestão de SST, consultoria em planta e integração de equipes industriais.</p>
+                </div>
+                <div class="lg:col-span-7">
+                    <div class="frosted-glass p-8 rounded-md space-y-6">
+                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                            <div class="p-4 rounded bg-spaceGray/50 border border-white/10 space-y-1">
+                                <span class="font-mono text-xs text-silver">Profissional</span>
+                                <p class="text-white font-semibold text-sm">Evandro José Tavares de Barros</p>
+                            </div>
+                            <div class="p-4 rounded bg-spaceGray/50 border border-white/10 space-y-1">
+                                <span class="font-mono text-xs text-silver">Especialidade</span>
+                                <p class="text-white font-semibold text-sm">Técnico em Segurança do Trabalho</p>
+                            </div>
+                        </div>
+                        <div class="pt-2">
+                            <button onclick="copyContactInfo()" class="w-full py-3 rounded-sm bg-midnightBlue text-white font-semibold text-sm hover:bg-midnightBlue/80 transition-all shadow-md flex items-center justify-center gap-2">
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"></path></svg>
+                                Copiar Resumo do Perfil para Contato
+                            </button>
+                            <div id="copy-feedback" class="text-center text-xs text-roseSand mt-2 opacity-0 transition-opacity duration-300 font-mono">
+                                Informações copiadas com sucesso!
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 py-8 bg-spaceGray/40">
+        <div class="max-w-[1280px] mx-auto px-6 flex flex-col sm:flex-row items-center justify-between text-xs text-silver/60 font-mono gap-4">
+            <div>&copy; 2026 Evandro José Tavares de Barros. Todos os direitos reservados.</div>
+            <div>Estilo de Elegância Espacial • Design Tech-Inspired</div>
+        </div>
+    </footer>
+
+    <!-- JavaScript Interativo -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Copy Profile Info Function using safe fallback
+        function copyContactInfo() {
+            const profileText = "Evandro José Tavares de Barros - Técnico em Segurança do Trabalho. Gestão de CIPA, Brigada de Emergência, Liberação de Trabalhos Especiais, Auditorias de EPIs, Ordens de Serviço, PPP, CAT, KPIs de Segurança e Inspeções Técnicas.";
+            
+            const textarea = document.createElement('textarea');
+            textarea.value = profileText;
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                document.execCommand('copy');
+                const feedback = document.getElementById('copy-feedback');
+                feedback.style.opacity = '1';
+                setTimeout(() => {
+                    feedback.style.opacity = '0';
+                }, 3000);
+            } catch (err) {
+                console.error('Erro ao copiar', err);
+            }
+            document.body.removeChild(textarea);
+        }
+    </script>
+</body>
+</html>
